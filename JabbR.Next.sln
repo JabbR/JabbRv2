@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22231.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4A10C55E-2CE5-45CA-B709-066E8E8ABBAB}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "JabbR", "src\JabbR\JabbR.kproj", "{93211C80-0ADE-4BCF-A3A1-8952420DA123}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1DC3EBB-BA96-4A9E-AC95-DE0A695194AF}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93211C80-0ADE-4BCF-A3A1-8952420DA123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93211C80-0ADE-4BCF-A3A1-8952420DA123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93211C80-0ADE-4BCF-A3A1-8952420DA123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93211C80-0ADE-4BCF-A3A1-8952420DA123}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{93211C80-0ADE-4BCF-A3A1-8952420DA123} = {4A10C55E-2CE5-45CA-B709-066E8E8ABBAB}
+	EndGlobalSection
+EndGlobal
