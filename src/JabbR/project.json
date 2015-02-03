@@ -3,6 +3,8 @@
     "version": "1.0.0-*",
     "dependencies": {
         "Microsoft.AspNet.Mvc": "6.0.0-beta2",
+        "EntityFramework.SqlServer": "7.0.0-beta2",
+        "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-beta2",
         "Microsoft.AspNet.Diagnostics": "1.0.0-beta2",
         "Microsoft.AspNet.Server.IIS": "1.0.0-beta2",
         "Microsoft.AspNet.SignalR.Server": "3.0.0-beta2",
