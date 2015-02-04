@@ -10,7 +10,11 @@ namespace JabbR.Models
 
         public JabbrContext()
         {
-            Database.AsMigrationsEnabled().ApplyMigrations();
+            if (!_created)
+            {
+                Database.AsMigrationsEnabled().ApplyMigrations();
+                _created = true;
+            }
         }
 
         protected override void OnConfiguring(DbContextOptions options)
