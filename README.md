@@ -7,9 +7,11 @@ To be able to contribute to the project, you need to following new bits:
 * ASP.NET 5 - [Get it here](https://github.com/aspnet/home#getting-started)
 
 ## Getting started
-To get started, first get the latest version of the ASP.NET 5. You do this by following the [Getting Started](https://github.com/aspnet/home#getting-started) guide down to the point where you have executed the *kvm upgrade* command. You are now ready to start using ASP.NET 5!
+To get started, first get the latest version of the ASP.NET 5. You do this by following the [Getting Started](https://github.com/aspnet/home#getting-started) guide down to the point where you have executed the *kvm upgrade* command.
+You are now ready to start using ASP.NET 5!
 
-After this open a PowerShell window and browse to your local clone of the JabbRv2 in the folder /src/jabbr. Run the command: *kpm restore*
+After this open a PowerShell window and browse to your local clone of the JabbRv2 in the folder /src/jabbr. 
+Run the command: *kpm restore*
 This will install all the required packages needed for the source to build and run.
 
 Next, run the command: *k jabbr*
