@@ -16,3 +16,6 @@ This will install all the required packages needed for the source to build and r
 
 Next, run the command: *k jabbr*
 This will build the source, start the web server and host your local jabbr version on [http://localhost:5000/](http://localhost:5000/).
+
+## Developer discussion
+Participate in the development discussion over at https://jabbr.net/#/rooms/metav2.
