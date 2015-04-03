@@ -18,18 +18,18 @@
         gfm: true
     };
 
-    function processMarkdown(src) {
-        function noop() { }
-        noop.exec = noop;
-
-        // process inline markdown elements using custom lexer rules
-        var inlineLexer = new marked.InlineLexer([], markdownOptions);
-
-        inlineLexer.rules.link = noop;
-        inlineLexer.rules.url = noop;
-
-        return inlineLexer.output(src);
-    }
+//    function processMarkdown(src) {
+//        function noop() { }
+//        noop.exec = noop;
+//
+//        // process inline markdown elements using custom lexer rules
+//        var inlineLexer = new marked.InlineLexer([], markdownOptions);
+//
+//        inlineLexer.rules.link = noop;
+//        inlineLexer.rules.url = noop;
+//
+//        return inlineLexer.output(src);
+//    }
 
     // getting the browser's name for use in isMobile
     var nav = navigator.userAgent || navigator.vendor || window.opera;
@@ -197,7 +197,7 @@
             content = utility.parseEmojis(content);
 
             // Convert markdown
-            content = processMarkdown(content);
+            //content = processMarkdown(content);
 
             // Transform emoji to html
             content = utility.transformEmojis(content);

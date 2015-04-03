@@ -11,13 +11,26 @@ module.exports = function (grunt) {
                     cleanTargetDir: false
                 }
             }
+        },
+        copy: {
+            app: {
+                files: [{
+                    expand: true,
+                    dest: 'wwwroot/app',
+                    cwd: 'Content',
+                    src: [
+                        '**/*.js'
+                    ]
+                }]
+            }
         }
     });
 
     // This command registers the default task which will install bower packages into wwwroot/lib
-    grunt.registerTask("default", ["bower:install"]);
+    grunt.registerTask("default", ["bower:install","copy:app"]);
 
     // The following line loads the grunt plugins.
     // This line needs to be at the end of this this file.
     grunt.loadNpmTasks("grunt-bower-task");
+    grunt.loadNpmTasks("grunt-contrib-copy");
 };
