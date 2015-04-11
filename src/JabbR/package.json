@@ -1,8 +1,28 @@
-﻿{
-    "version": "0.0.0",
-    "name": "JabbRv2",
-    "devDependencies": {
-        "grunt": "^0.4.5",
-        "grunt-bower-task": "^0.4.0"
-    }
+{
+  "name": "JabbRv2",
+  "version": "0.0.1",
+  "description": "JabbRv2",
+  "main": "gruntfile.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --progress --colors",
+    "build": "webpack --progress --colors"
+  },
+  "author": "JabbR <jabbr.net>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JabbR/JabbRv2"
+  },
+  "devDependencies": {
+    "babel-loader": "^4.2.0",
+    "expose-loader": "^0.6.0",
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.4.0",
+    "jsx-loader": "^0.12.2",
+    "react": "^0.13.1",
+    "react-hot-loader": "^1.2.4",
+    "react-router": "^0.13.2",
+    "webpack": "^1.7.3",
+    "webpack-dev-server": "^1.7.0"
+  }
 }
