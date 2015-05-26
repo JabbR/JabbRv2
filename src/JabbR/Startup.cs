@@ -2,14 +2,16 @@
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
+using Microsoft.Framework.Runtime;
 using JabbR.Commands;
 using JabbR.Models;
+using Microsoft.Data.Entity;
 
 namespace JabbR
 {
@@ -32,16 +34,18 @@ namespace JabbR
             services.AddMvc();
 
             // Add EntityFramework
-            services.AddEntityFramework(Configuration)
+            services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<JabbrContext>();
+                .AddDbContext<JabbrContext>(options => {
+                    options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]);
+                });
 
             // Add Identity
-            services.AddIdentity<ChatUser, IdentityRole>(Configuration)
+            services.AddIdentity<ChatUser, IdentityRole>()
                 .AddEntityFrameworkStores<JabbrContext>();
 
             // Add SignalR
-            services.AddSignalR().ConfigureSignalR(options =>
+            services.AddSignalR(options =>
             {
                 //options.Hubs.EnableDetailedErrors = true;
             });

@@ -24,8 +24,7 @@ namespace JabbR.Commands
             CommandDescriptor descriptor;
             if (_commandLookup.TryGetValue(commandName, out descriptor))
             {
-                var typeActivator = new TypeActivator();
-                return (ICommand)typeActivator.CreateInstance(_provider, descriptor.Type, chatHub);
+                return (ICommand)ActivatorUtilities.CreateInstance(_provider, descriptor.Type, chatHub);
             }
 
             return null;

@@ -43,7 +43,7 @@
     {
         <script type="text/javascript">
             window.appInsights={queue:[],applicationInsightsId:null,accountId:null,appUserId:null,configUrl:null,start:function(n){function u(n){t[n]=function(){var i=arguments;t.queue.push(function(){t[n].apply(t,i)})}}function f(n,t){if(n){var u=r.createElement(i);u.type="text/javascript";u.src=n;u.async=!0;u.onload=t;u.onerror=t;r.getElementsByTagName(i)[0].parentNode.appendChild(u)}else t()}var r=document,t=this,i;t.applicationInsightsId=n;u("logEvent");u("logPageView");i="script";f(t.configUrl,function(){f("//az416426.vo.msecnd.net/scripts/a/ai.0.7.js")});t.start=function(){}}};
-    
+
             appInsights.start("@Model.AppInsights");
             appInsights.logPageView();
         </script>
@@ -184,7 +184,7 @@
     </script>
     <script id="new-tab-template" type="text/x-jquery-tmpl">
         <li id="tabs-${id}" class="room" data-name="${name}" data-closed="${closed}" data-trimmable="true" role="tab">
-            <a> 
+            <a>
                 <i class="icon-lock lock hide"></i>
                 <i class="icon-ban-circle readonly hide"></i>
                 <span class="content">${name}</span>
@@ -194,7 +194,7 @@
     </script>
     <script id="command-help-template" type="text/x-jquery-tmpl">
         <dt>
-            <span class="command command-name">{{if IsKeyCombination}}{{else}}/{{/if}}${Name}</span> 
+            <span class="command command-name">{{if IsKeyCombination}}{{else}}/{{/if}}${Name}</span>
             {{if Arguments}}<span class="command command-args">${Arguments}</span>{{/if}}
         </dt>
         <dd>${Description}</dd>
@@ -210,7 +210,7 @@
                 <a class="btn" href="#">@LanguageResources.Client_Cancel</a>
                 <a class="btn btn-danger" href="#">@LanguageResources.Client_Confirm</a>
             </div>
-        </div> 
+        </div>
     </script>
     <script id="modal-message-template" type="text/x-jquery-tmpl">
         <div class="modal hide fade">
@@ -232,7 +232,7 @@
         <div class="collapsible_content">
             {{html html}}
         </div>
-        <time class="js-relative-date" datetime="${created_at}">${created_at}</time> 
+        <time class="js-relative-date" datetime="${created_at}">${created_at}</time>
     </script>
     <!-- /TweetContentProvider -->
     <!-- /GitHub Issues Content Provider -->
@@ -344,7 +344,7 @@
                     <button class="dropdown-toggle" data-toggle="dropdown" id="tabs-dropdown-rooms">
                         <i class="icon-chevron-down"></i>
                     </button>
-                  
+
                     <ul id="tabs-dropdown" class="dropdown-menu pull-right" aria-labelledby="tabs-dropdown-rooms">
                     </ul>
                 </div>
@@ -476,17 +476,17 @@
                         {
                             <div id="releaseArea">
                                 <p>
-                                    @Html.Raw(String.Format(LanguageResources.Client_DeploymentInfo, 
-                                                            Model.Sha, 
-                                                            Model.Sha.Substring(0, 10), 
-                                                            Model.Branch, 
+                                    @Html.Raw(String.Format(LanguageResources.Client_DeploymentInfo,
+                                                            Model.Sha,
+                                                            Model.Sha.Substring(0, 10),
+                                                            Model.Branch,
                                                             Model.Time))
                                 </p>
                             </div>
                         }
                         <div class="command-list">
                             <h3>@LanguageResources.Client_FAQ</h3>
-                            @Html.Raw(LanguageResources.Client_FAQMessage)      
+                            @Html.Raw(LanguageResources.Client_FAQMessage)
                         </div>
                         <h3>@LanguageResources.Client_SiteWideShortcuts</h3>
                         <dl id="shortcut" class="command-list"></dl>
@@ -566,7 +566,7 @@
     <script type="text/javascript" src="~/lib-checkin/js/jquery.sortElements.js"></script>
     <script type="text/javascript" src="~/lib/javascript-linkify/ba-linkify.min.js"></script>
     <script type="text/javascript" src="~/lib-checkin/js/quicksilver.js"></script>
-    <script type="text/javascript" src="~/lib/marked/marked.js"></script>
+    <script type="text/javascript" src="~/lib/marked/lib/marked.js"></script>
     <script type="text/javascript" src="~/lib-checkin/js/jquery.history.js"></script>
     <script type="text/javascript" src="~/lib/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="~/lib/highlightjs/highlight.pack.js"></script>

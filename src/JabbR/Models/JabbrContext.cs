@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+
 using Microsoft.Data.Entity;
-using Microsoft.Data.Entity.Metadata;
+using Microsoft.Data.Entity.Infrastructure;
 
 namespace JabbR.Models
 {
@@ -12,14 +13,9 @@ namespace JabbR.Models
         {
             if (!_created)
             {
-                Database.AsMigrationsEnabled().ApplyMigrations();
+                Database.AsRelational().ApplyMigrations();
                 _created = true;
             }
-        }
-
-        protected override void OnConfiguring(DbContextOptions options)
-        {
-            options.UseSqlServer();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
