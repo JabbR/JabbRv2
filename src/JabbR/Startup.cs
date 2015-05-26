@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
