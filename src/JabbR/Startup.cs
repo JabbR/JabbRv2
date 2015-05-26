@@ -2,7 +2,6 @@ using System;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Routing;
 using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
@@ -11,7 +10,6 @@ using Microsoft.Framework.Logging.Console;
 using Microsoft.Framework.Runtime;
 using JabbR.Commands;
 using JabbR.Models;
-using Microsoft.Data.Entity;
 
 namespace JabbR
 {
@@ -32,17 +30,6 @@ namespace JabbR
         {
             // Add MVC services to the services container.
             services.AddMvc();
-
-            // Add EntityFramework
-            services.AddEntityFramework()
-                .AddSqlServer()
-                .AddDbContext<JabbrContext>(options => {
-                    options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]);
-                });
-
-            // Add Identity
-            services.AddIdentity<ChatUser, IdentityRole>()
-                .AddEntityFrameworkStores<JabbrContext>();
 
             // Add SignalR
             services.AddSignalR(options =>
@@ -77,9 +64,6 @@ namespace JabbR
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
-
-            // Add Identity and cookie middleware to the request pipeline
-            app.UseIdentity();
 
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
