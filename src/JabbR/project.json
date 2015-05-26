@@ -26,11 +26,14 @@
     "node_modules",
     "bower_components"
   ],
-  "packExclude": [
+  "publishExclude": [
     "node_modules",
     "bower_components",
     "**.kproj",
-    "**.user"
+    "**.user",
+    "grunfile.js",
+    "bower.json",
+    "package.json"
   ],
   "scripts": {
     "postrestore": [
