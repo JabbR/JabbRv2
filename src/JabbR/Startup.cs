@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Routing;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
+using Microsoft.Framework.Runtime;
 using JabbR.Commands;
 using JabbR.Models;
 
@@ -15,10 +15,10 @@ namespace JabbR
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             // Setup configuration sources.
-            Configuration = new Configuration()
+            Configuration = new ConfigurationSection(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
         }
@@ -31,17 +31,8 @@ namespace JabbR
             // Add MVC services to the services container.
             services.AddMvc();
 
-            // Add EntityFramework
-            services.AddEntityFramework(Configuration)
-                .AddSqlServer()
-                .AddDbContext<JabbrContext>();
-
-            // Add Identity
-            services.AddIdentity<ChatUser, IdentityRole>(Configuration)
-                .AddEntityFrameworkStores<JabbrContext>();
-
             // Add SignalR
-            services.AddSignalR().ConfigureSignalR(options =>
+            services.AddSignalR(options =>
             {
                 //options.Hubs.EnableDetailedErrors = true;
             });
@@ -73,9 +64,6 @@ namespace JabbR
 
             // Add static files to the request pipeline.
             app.UseStaticFiles();
-
-            // Add Identity and cookie middleware to the request pipeline
-            app.UseIdentity();
 
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
