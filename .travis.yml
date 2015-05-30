@@ -1,0 +1,8 @@
+language: CSharp
+install: 
+ - echo "deb http://download.mono-project.com/repo/debian nightly main" | sudo tee /etc/apt/sources.list.d/mono-nightly.list
+ - sudo apt-get update
+ - sudo apt-get install mono-complete
+ - mono --version
+script:
+ - ./build.sh --quiet verify
