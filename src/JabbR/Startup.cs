@@ -18,9 +18,9 @@ namespace JabbR
         public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             // Setup configuration sources.
-            Configuration = new ConfigurationSection(appEnv.ApplicationBasePath)
-                .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
+//             Configuration = new ConfigurationSection(appEnv.ApplicationBasePath)
+//                 .AddJsonFile("config.json")
+//                 .AddEnvironmentVariables();
         }
 
         public IConfiguration Configuration { get; set; }
@@ -46,6 +46,8 @@ namespace JabbR
         // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerfactory)
         {
+            app.UseKestrelWorkaround();
+            
             // Configure the HTTP request pipeline.
             // Add the console logger.
             loggerfactory.AddConsole();
