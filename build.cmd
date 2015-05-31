@@ -36,3 +36,5 @@ CALL packages\KoreBuild\build\dnvm install default -runtime CoreCLR -arch x86
 :run
 CALL packages\KoreBuild\build\dnvm use default -runtime CLR -arch x86
 packages\Sake\tools\Sake.exe -I packages\KoreBuild\build -f makefile.shade %*
+
+CALL packages\KoreBuild\build\dnu publish src/JabbR --no-source --out artifacts/build/jabbr --runtime active
