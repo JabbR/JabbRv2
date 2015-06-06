@@ -1,40 +1,23 @@
 @echo off
 cd %~dp0
 
-RMDIR /S /Q src\JabbR\wwwroot\lib\*
+IF EXIST artifacts\ RMDIR /S /Q artifacts\
+IF EXIST src\JabbR\wwwroot\lib\ RMDIR /S /Q src\JabbR\wwwroot\lib\
 
 SETLOCAL
-SET CACHED_NUGET=%LocalAppData%\NuGet\NuGet.exe
+SET CACHED_DNVM=%USERPROFILE%\.dnx\bin\dnvm.cmd
+SET DNX_UNSTABLE_FEED=https://www.myget.org/F/aspnetrelease/api/v2
 
-IF EXIST %CACHED_NUGET% goto copynuget
-echo Downloading latest version of NuGet.exe...
-IF NOT EXIST %LocalAppData%\NuGet md %LocalAppData%\NuGet
-@powershell -NoProfile -ExecutionPolicy unrestricted -Command "$ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest 'https://www.nuget.org/nuget.exe' -OutFile '%CACHED_NUGET%'"
+IF EXIST %CACHED_DNVM% GOTO dnvminstall
+echo Installing dnvm
+@powershell -NoProfile -ExecutionPolicy unrestricted -Command "&{$Branch='dev';iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))}"
 
-:copynuget
-IF EXIST .nuget\nuget.exe goto restore
-md .nuget
-copy %CACHED_NUGET% .nuget\nuget.exe > nul
+:dnvminstall
+echo Installing dnx...
+CALL dnvm install 1.0.0-beta5-11911 -u
 
-:restore
-IF EXIST packages\KoreBuild goto run
-IF DEFINED BUILDCMD_RELEASE (
-	.nuget\NuGet.exe install KoreBuild -version 0.2.1-%BUILDCMD_RELEASE% -ExcludeVersion -o packages -nocache -pre
-) ELSE (
-	.nuget\NuGet.exe install KoreBuild -ExcludeVersion -o packages -nocache -pre -source https://www.myget.org/F/aspnetmaster/api/v2
-)
-.nuget\NuGet.exe install Sake -version 0.2 -o packages -ExcludeVersion
+echo Restoring...
+CALL dnu restore src/JabbR
 
-IF "%SKIP_DNX_INSTALL%"=="1" goto run
-IF DEFINED BUILDCMD_RELEASE (
-	CALL packages\KoreBuild\build\dnvm install 1.0.0-%BUILDCMD_RELEASE% -runtime CLR -arch x86 -a default
-) ELSE (
-	CALL packages\KoreBuild\build\dnvm upgrade -runtime CLR -arch x86 
-)
-CALL packages\KoreBuild\build\dnvm install default -runtime CoreCLR -arch x86
-
-:run
-CALL packages\KoreBuild\build\dnvm use default -runtime CLR -arch x86
-packages\Sake\tools\Sake.exe -I packages\KoreBuild\build -f makefile.shade %*
-
-CALL packages\KoreBuild\build\dnu publish src/JabbR --no-source --out artifacts/build/jabbr --runtime active
+echo Publishing...
+CALL dnu publish src/JabbR --no-source --out artifacts/build/jabbr --runtime active
