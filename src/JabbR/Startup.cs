@@ -18,9 +18,6 @@ namespace JabbR
         public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             // Setup configuration sources.
-//             Configuration = new ConfigurationSection(appEnv.ApplicationBasePath)
-//                 .AddJsonFile("config.json")
-//                 .AddEnvironmentVariables();
         }
 
         public IConfiguration Configuration { get; set; }
@@ -46,9 +43,9 @@ namespace JabbR
         // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerfactory)
         {
+            // Configure the HTTP request pipeline.
             app.UseKestrelWorkaround();
             
-            // Configure the HTTP request pipeline.
             // Add the console logger.
             loggerfactory.AddConsole();
 
@@ -74,9 +71,6 @@ namespace JabbR
                     name: "default",
                     template: "{controller}/{action}/{id?}",
                     defaults: new { controller = "Home", action = "Index" });
-
-                // Uncomment the following line to add a route for porting Web API 2 controllers.
-                // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
 
             app.UseSignalR();
