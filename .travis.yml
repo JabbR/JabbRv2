@@ -1,0 +1,4 @@
+language: CSharp
+mono: latest
+script:
+ - ./build.sh --quiet verify 

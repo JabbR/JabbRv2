@@ -1,4 +1,4 @@
-# JabbR v2
+# JabbR v2 [![Build Status](https://travis-ci.org/alfhenrik/JabbRv2.svg?branch=dev)](https://travis-ci.org/alfhenrik/JabbRv2)
 
 JabbR is a xplat chat web application built with ASP.NET 5 and MVC 6 using SignalR.
 
