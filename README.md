@@ -1,4 +1,4 @@
-# JabbR v2 [![Build Status](https://travis-ci.org/alfhenrik/JabbRv2.svg?branch=dev)](https://travis-ci.org/alfhenrik/JabbRv2)
+# JabbR v2 [![Build Status](https://travis-ci.org/JabbR/JabbRv2.svg?branch=dev)](https://travis-ci.org/JabbR/JabbRv2)
 
 JabbR is a xplat chat web application built with ASP.NET 5 and MVC 6 using SignalR.
 
@@ -14,6 +14,8 @@ JabbRv2 is a web application built on ASP.NET 5, to build and develop JabbRv2 yo
 ### Getting started with ASP.NET 5
  - [Windows](https://github.com/aspnet/home#getting-started-on-windows)
  - [OS X](https://github.com/aspnet/home#os-x)
+
+*NB: If you are on OS X and you run into the following error [System.InvalidProgramException: Invalid IL code](https://github.com/aspnet/SignalR-Server/issues/93), you will need to ensure that you have installed the latest Mono release `Cycle 5 Service Release 1 (4.0.1.44)`, built mono from source using their [One Stop Shop Build Script (32-bit)](http://www.mono-project.com/docs/compiling-mono/mac/#one-stop-shop-build-script-32-bit) or install one of the weekly snapshot builds that the mono project provide [here](http://www.mono-project.com/docs/getting-started/install/weekly-packages/).*
 
 ### Code editor
 
@@ -34,8 +36,7 @@ cd JabbRv2
 
 ### OSX
 
-If you want to build and develop JabbRv2 on OSX there's a few little hoops that you will have to jump through to get it buildind and running.
-- There's currently a bug in the latest public build of Mono (4.0.1) that causes [System.InvalidProgramException: Invalid IL code](https://github.com/aspnet/SignalR-Server/issues/93), the workaround for this is to build Mono from source using their [One Stop Shop Build Script (32-bit)](http://www.mono-project.com/docs/compiling-mono/mac/#one-stop-shop-build-script-32-bit) or install one of the weekly snapshot builds that the mono project provide [here](http://www.mono-project.com/docs/getting-started/install/weekly-packages/).
+If you want to build and develop JabbRv2 on OSX there's a little hoop that you will have to jump through to get it building and running.
 - There's an issue in the KestrelHttpServer that causes a [server deadlock](https://github.com/aspnet/KestrelHttpServer/issues/103), there is a workaround for this and we've included that in the source (`KestrelWorkaround.cs`).
 
 Once you have the latest mono installed, run the below:
