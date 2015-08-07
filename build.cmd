@@ -6,7 +6,6 @@ IF EXIST src\JabbR\wwwroot\lib\ RMDIR /S /Q src\JabbR\wwwroot\lib\
 
 SETLOCAL
 SET CACHED_DNVM=%USERPROFILE%\.dnx\bin\dnvm.cmd
-SET DNX_UNSTABLE_FEED=https://www.myget.org/F/aspnetrelease/api/v2
 
 IF EXIST %CACHED_DNVM% GOTO dnvminstall
 echo Installing dnvm
@@ -14,7 +13,7 @@ echo Installing dnvm
 
 :dnvminstall
 echo Installing dnx...
-CALL dnvm install latest -u
+CALL dnvm install 1.0.0-beta6
 
 echo Restoring...
 CALL dnu restore src/JabbR

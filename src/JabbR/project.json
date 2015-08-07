@@ -2,16 +2,16 @@
   "webroot": "wwwroot",
   "version": "1.0.0-*",
   "dependencies": {
-    "Microsoft.AspNet.Mvc": "6.0.0-beta5-*",
-    "Microsoft.AspNet.Diagnostics": "1.0.0-beta5-*",
-    "Microsoft.AspNet.Server.IIS": "1.0.0-beta5-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5-*",
-    "Microsoft.AspNet.SignalR.Server": "3.0.0-beta5-*",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-beta5-*",
-    "Microsoft.Framework.Configuration.Json": "1.0.0-beta5-*",
-    "Microsoft.Framework.Logging": "1.0.0-beta5-*",
-    "Microsoft.Framework.Logging.Console": "1.0.0-beta5-*",
-    "Kestrel": "1.0.0-beta5-*"
+    "Microsoft.AspNet.Mvc": "6.0.0-beta6-*",
+    "Microsoft.AspNet.Diagnostics": "1.0.0-beta6-*",
+    "Microsoft.AspNet.Server.IIS": "1.0.0-beta6-*",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6-*",
+    "Microsoft.AspNet.SignalR.Server": "3.0.0-beta6-*",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta6-*",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta6-*",
+    "Microsoft.Framework.Logging": "1.0.0-beta6-*",
+    "Microsoft.Framework.Logging.Console": "1.0.0-beta6-*",
+    "Kestrel": "1.0.0-beta6-*"
   },
   "commands": {
     "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",
@@ -24,7 +24,8 @@
   "exclude": [
     "wwwroot",
     "node_modules",
-    "bower_components"
+    "bower_components",
+    "bin"
   ],
   "publishExclude": [
     "node_modules",
