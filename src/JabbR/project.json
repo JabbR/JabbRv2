@@ -2,23 +2,27 @@
   "webroot": "wwwroot",
   "version": "1.0.0-*",
   "dependencies": {
-    "Microsoft.AspNet.Mvc": "6.0.0-beta6-*",
-    "Microsoft.AspNet.Diagnostics": "1.0.0-beta6-*",
-    "Microsoft.AspNet.Server.IIS": "1.0.0-beta6-*",
-    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta6-*",
-    "Microsoft.AspNet.SignalR.Server": "3.0.0-beta6-*",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-beta6-*",
-    "Microsoft.Framework.Configuration.Json": "1.0.0-beta6-*",
-    "Microsoft.Framework.Logging": "1.0.0-beta6-*",
-    "Microsoft.Framework.Logging.Console": "1.0.0-beta6-*",
-    "Kestrel": "1.0.0-beta6-*"
+    "Microsoft.AspNet.Mvc": "6.0.0-beta8",
+    "Microsoft.AspNet.Diagnostics": "1.0.0-beta8",
+    "Microsoft.AspNet.Server.WebListener": "1.0.0-beta8",
+    "Microsoft.AspNet.SignalR.Server": "3.0.0-beta8-*",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta8",
+    "Microsoft.Framework.Configuration.Json": "1.0.0-beta8",
+    "Microsoft.Framework.Logging": "1.0.0-beta8",
+    "Microsoft.Framework.Logging.Console": "1.0.0-beta8",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta8"
   },
   "commands": {
     "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5001",
-    "jabbr": "Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5004"
+    "jabbr": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --server.urls http://localhost:5004"
   },
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "dependencies": {
+        "System.Resources.ResourceManager": "4.0.1-beta-23409",
+        "System.Threading": "4.0.11-beta-23409"
+      }
+     },
     "dnxcore50": { }
   },
   "exclude": [
