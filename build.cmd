@@ -13,7 +13,7 @@ echo Installing dnvm
 
 :dnvminstall
 echo Installing dnx...
-CALL dnvm install 1.0.0-beta6
+CALL dnvm install 1.0.0-beta8 -force
 
 echo Restoring...
 CALL dnu restore src/JabbR
